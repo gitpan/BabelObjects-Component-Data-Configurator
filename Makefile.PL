@@ -21,7 +21,8 @@ CHANGE_WARN
 
 WriteMakefile(
     NAME            => $PACKAGE,
-    VERSION_FROM    => "lib/$PACKAGE_FILE.pm", # finds $VERSION
+#    VERSION_FROM    => "lib/$PACKAGE_FILE.pm", # finds $VERSION
+    VERSION_FROM    => "VERSION", # finds $VERSION
     AUTHOR          => 'Jean-Christophe Kermagoret <jck@BabelObjects.Org>',
     dist            => { 'COMPRESS' => 'gzip -9f',
                           'SUFFIX'   => 'gz'

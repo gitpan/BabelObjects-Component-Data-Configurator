@@ -58,18 +58,20 @@ sub loadAndStoreRpms {
 
         my $dir = "";
         my $app = "";
+	my $version = "";
+	my $release = "";
         my $name = $rpm->getFirstChild->getData();
         print "Rpm = $name : ";
 
         $_ = $name;
 
         if ( m#/# ) {
-            ($dir, $app) = /([^\/]*)\/(.*)\.(sparc|alpha|i686|i386|src).rpm/;
+            ($dir, $app, $version, $release) = /([^\/]*)\/(.*)-([^-]*)-([^-]+)\.(sparc|alpha|i686|i386|src).rpm/;
         } else {
-            ($app) = /(.*)\.(sparc|alpha|i686|i386|src).rpm/;
+            ($app, $version, $release) = /(.*)-([^-]*)-([^-]+)\.(sparc|alpha|i686|i386|src).rpm/;
         }
 
-        if ( `rpm -q $app | tr -d "\n"` eq "" ) {
+	if ( `rpm -q $app | tr -d "\n"` ne "$app-$version-$release" ) {
             # Le package n'est pas installé
             push(@toInstall, $name);
             print "  => A installer\n";
@@ -82,7 +84,7 @@ sub loadAndStoreRpms {
             }
             print "\n";
         } else {
-            print "...OK\n";
+            print "...Already installed\n";
         }
     }
 

@@ -16,7 +16,7 @@
     <rpm>sendmail-8.11.0-2.i386.rpm</rpm>
     <rpm>db-3.1.14-1.i386.rpm</rpm>
     <rpm>cyrus-sasl-1.5.24-1.i386.rpm</rpm>
-    <rpm>cyrus-imapd-2.0.7-1.i386.rpm</rpm>
+    <rpm>cyrus-imapd-2.0.7-2.i386.rpm</rpm>
     <rpm>cyrus-perl-imap-1.0-1.i386.rpm</rpm>
     <rpm>ldapsdk-4.11-1.i386.rpm</rpm>
   </rpms>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+
+<!-- Go and see ../test/test.xml to see what do all the elements mean -->
+
+<!DOCTYPE bo [
+
+  <!ENTITY bo_base_conf "/var/cache/babelobjects/conf" >
+  <!ENTITY openldap_conf_dir "/usr/local/openldap/etc" >
+  <!ENTITY organization "BabelObjects" >
+  <!ENTITY country "Fr" >
+  <!ENTITY base "o=&organization;, c=&country;" >
+  <!ENTITY smtphost "smtp.babelobjects.org" >
+  <!ENTITY mailhost "mail.babelobjects.org" >
+  <!ENTITY maildomain "babelobjects.org" >
+
+  <!ENTITY conf_dir "/usr/local/babelobjects/conf" >
+  <!ENTITY rpms SYSTEM "/usr/local/babelobjects/conf/install/smartupgrade.xml" >
+  <!ENTITY services SYSTEM "/usr/local/babelobjects/conf/install/service.xml" >
+
+]>
+
+<bo>
+
+  <parameter>
+        <bo_base_config>&bo_base_conf;</bo_base_config>
+  </parameter>
+
+  <classes>
+      <parameter>
+         <configurator>BabelObjects::Component::Data::Configurator</configurator>
+      </parameter>
+  </classes>
+
+  &rpms;
+  &services;
+
+</bo>
